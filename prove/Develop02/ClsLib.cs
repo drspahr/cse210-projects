@@ -12,35 +12,6 @@ public class Entry
     {
 
     }
-
-    //Methods
-    //Method to get user response and current date
-    // public void UserEntry()
-    // {
-    //     //Declare objects
-    //     Prompt prm = new Prompt();
-
-    //     int index = 0;
-
-    //     // Get random question
-    //     index = prm.RndQstIndex(index);
-    //     PromptQuestion = prm.Questions[index];
-
-    //     Console.WriteLine(PromptQuestion);
-    //     Console.Write(">");
-    //     UserResponse = Console.ReadLine();
-
-    //     DateTime curDay = DateTime.Now;
-    //     CurDay = curDay.ToShortDateString();
-
-    // }
-
-    // Method for displaying recent entry
-    public void DisplayEntry()
-    {
-        Console.WriteLine($"Date: {CurDay} - Prompt: {PromptQuestion}");
-        Console.WriteLine(UserResponse);
-    }
 }
 
 //----------------------------------------------------------------------------------------------------------
@@ -57,7 +28,7 @@ public class Prompt
         Questions.Add("Who was the most interesting person I interacted with today?");
         Questions.Add("What was the best part of my day?");
         Questions.Add("How did I see the hand of the Lord in my life today?");
-        Questions.Add("What was teh strongest emotion I felt today?");
+        Questions.Add("What was the strongest emotion I felt today?");
         Questions.Add("If I had one thing I could do over today, what would it be?");
         Questions.Add("Who did I serve today?");
         Questions.Add("If I was unable to overcome a weakness today, what I have I done to ensure I overcome it tomorrow?");
@@ -91,17 +62,51 @@ public class Journal
     }
 
     // Method
-    public void ListAdd(Entry entry)
+    public void ListAdd(string fileName)
     { 
-        jnlEntries.Add(entry);
+        jnlEntries.Clear();
+
+        string [] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines)
+        {
+            Entry jnlEnt = new Entry();
+            string [] parts = line.Split("|");
+
+            jnlEnt.CurDay = parts[0];
+            jnlEnt.PromptQuestion = parts[1];
+            jnlEnt.UserResponse = parts[2];
+
+            jnlEntries.Add(jnlEnt);
+        }
     }
 
     public void DisplayEntries()
-    {
+    {   
+        Console.Clear();
+        Console.WriteLine("\n**********************************************ENTRIES*********************************************************************\n");
         foreach (Entry entry in jnlEntries)
         {
             Console.WriteLine($"Date: {entry.CurDay} - Prompt: {entry.PromptQuestion}");
             Console.WriteLine($"{entry.UserResponse}");
+            Console.WriteLine();
         }
+        Console.WriteLine("**************************************************************************************************************************");
+        Console.WriteLine($"There are {jnlEntries.Count} entries");
+        Console.Write("Press Any Key to Continue ");
+        Console.ReadKey();
+    }
+
+
+    public void WriteFile(string fileName)
+    {
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Entry entry in jnlEntries)
+            {
+                 outputFile.WriteLine($"{entry.CurDay}|{entry.PromptQuestion}|{entry.UserResponse}");
+            }
+        }        
+        
     }
 }
