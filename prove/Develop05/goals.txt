@@ -1,0 +1,9 @@
+4164
+Simple|Give Talk|Give a talk in sacrament meeting|5|True
+Simple|Wash Car|Wash car this weekend|5|True
+Eternal|Ministering|Minister to my families twice a week|100|11
+Checklist|Attend Temple|Attend the temple quarterly|570|500|4|4|True
+Simple|Lawn Care|More grass and make sure sprinklers work|4|True
+Eternal|Read Scriptures|Read scriptures 10 min daily|60|11
+Simple|Walk the dogs|Walk the dogs Tuesday|10|True
+Checklist|Save Money|Put $10 in savings next two months|2080|2000|4|4|True
