@@ -1,0 +1,5 @@
+1|Allegro|Data Logger|9000.00
+2|Data 100|Data Logger Cane|350.00
+3|StelthII|CuCuSO4 reference cell|100.00
+4|GPS80|Portable GPS Interrupter|1900.00
+5|Solar Panel|Solar Panel for RMU|140.00

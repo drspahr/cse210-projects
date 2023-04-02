@@ -29,4 +29,19 @@ class Order
     {
         
     }
+
+    public void PlaceOrder(string order, int qunt)
+    {
+        Console.Clear();
+
+        Console.Write("Customer Name? --> ");
+        _customer = Console.ReadLine();
+
+        Customers cust = new Customers(_customer);
+
+        
+
+
+
+    }
 }

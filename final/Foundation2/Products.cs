@@ -5,7 +5,7 @@ class Product
     private float _price;
     private int _quantity;
 
-    // Contractor
+    // Constructor
     public Product()
     {
 
@@ -15,5 +15,11 @@ class Product
     public void CalPrice()
     {
 
+    }
+
+    public void DispalyProd()
+    {
+        Console.Clear(); 
+        Console.WriteLine($"{_name}, {_product}, {_price}, {_quantity}");
     }
 }

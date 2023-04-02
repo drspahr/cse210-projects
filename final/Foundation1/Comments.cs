@@ -7,17 +7,21 @@ class Comments
 
     public Comments()
     {
-
+    
     }
 
     // Methods
     public void GetComment()
     {
+        Console.Write("Enter name of commentor: ");
+        _name = Console.ReadLine();
 
+        Console.Write("Enter comment: ");
+        _comments = Console.ReadLine();
     }
 
-    public void DisplayCom()
+    public string DisplayCom()
     {
-
+        return $"{_name}, {_comments}";
     }
 }

@@ -6,9 +6,16 @@ class Events
     private string _time;
 
     // Constructor
-    public Events(string title, string desc, string date, string time)
+    public Events()
     {
 
+    }
+    public Events(string title, string desc, string date, string time)
+    {
+        _title = title;
+        _description = desc;
+        _date = date;
+        _time = time;
     }
 
     // Method
@@ -19,6 +26,12 @@ class Events
 
     public void DisplayEvent()
     {
+        
+    }
 
+    public void SetAddress()
+    {
+        Address evnt = new Address();
+        evnt.GetAddress();
     }
 }
